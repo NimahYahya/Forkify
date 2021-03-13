@@ -39,7 +39,7 @@ const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
     const query = searchView.getQuery();
-    if (!query) return;
+    if (!query && query === ' ') return;
 
     await model.loadSearchResults(query);
     resultsView.render(model.getSearchResultsPage());
